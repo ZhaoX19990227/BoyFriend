@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}首页 - AI男友{% endblock %}
+
+{% block content %}
+<div class="text-center">
+    <h1 class="text-4xl font-bold text-pink-600 mb-8">欢迎来到AI男友</h1>
+    <p class="text-xl text-gray-600 mb-12">在这里，你可以和你的AI男友进行有趣的对话</p>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div class="card">
+            <h2 class="text-2xl font-semibold text-pink-500 mb-4">文字聊天</h2>
+            <p class="text-gray-600 mb-4">和AI男友进行日常对话，分享你的喜怒哀乐</p>
+            <a href="{{ url_for('login') }}" class="btn-primary inline-block">开始聊天</a>
+        </div>
+        
+        <div class="card">
+            <h2 class="text-2xl font-semibold text-pink-500 mb-4">图片分享</h2>
+            <p class="text-gray-600 mb-4">分享你的照片，让AI男友为你解读图片内容</p>
+            <a href="{{ url_for('login') }}" class="btn-primary inline-block">上传图片</a>
+        </div>
+    </div>
+    
+    {% if not current_user.is_authenticated %}
+    <div class="mt-12">
+        <p class="text-gray-600 mb-4">还没有账号？立即注册开始体验</p>
+        <a href="{{ url_for('register') }}" class="btn-primary inline-block">立即注册</a>
+    </div>
+    {% endif %}
+</div>
+{% endblock %} 
